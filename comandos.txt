@@ -1,0 +1,7 @@
+openssl.exe req -new -out rodolfera.csr -config C:\xampp\apache\conf\openssl.cnf
+openssl.exe rsa -in privkey.pem -out rodolfera.key
+openssl.exe x509 -in rodolfera.csr -out rodolfera.crt -req -signkey rodolfera.key -days 730 -sha256 -extfile v3.ext
+
+
+
+//lembrar sempre da regra -config
