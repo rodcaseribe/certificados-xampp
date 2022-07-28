@@ -24,3 +24,5 @@ SSLCertificateFile "C:/xampp/apache/certificados/rodolfera.crt"
 SSLCertificateKeyFile "C:/xampp/apache/certificados/rodolfera.key"
 
 //lembrar sempre da regra -config
+
+Instalar certificado na maquina do cliente tbem
