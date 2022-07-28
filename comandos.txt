@@ -1,7 +1,26 @@
 openssl.exe req -new -out rodolfera.csr -config C:\xampp\apache\conf\openssl.cnf
 openssl.exe rsa -in privkey.pem -out rodolfera.key
+
+criar o arquivo v3.ext 
+com esse conteudo:
+
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = localhost
+DNS.2 = example.com
+
 openssl.exe x509 -in rodolfera.csr -out rodolfera.crt -req -signkey rodolfera.key -days 730 -sha256 -extfile v3.ext
 
+criar pasta certificados em xamp/apache2/
 
+sendo que o arquivo deve conter o dominio para funcionar https
+e na maquina cliente deve-se apontar o ip para o dominio no arquivo hosts do cliente
+
+alterar no arquivo do xampp tbem
+SSLCertificateFile "C:/xampp/apache/certificados/rodolfera.crt"
+SSLCertificateKeyFile "C:/xampp/apache/certificados/rodolfera.key"
 
 //lembrar sempre da regra -config
